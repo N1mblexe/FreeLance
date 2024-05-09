@@ -1,0 +1,32 @@
+[
+    {
+        "OgrenciNo": 2023001,
+        "IsimSoyisim": "Ahmet Yılmaz",
+        "Sinif": 11,
+        "Dersler": ["Matematik", "Fizik", "Kimya"]
+    },
+    {
+        "OgrenciNo": 2023002,
+        "IsimSoyisim": "Ayşe Demir",
+        "Sinif": 10,
+        "Dersler": ["Türkçe", "Edebiyat", "Biyoloji"]
+    },
+    {
+        "OgrenciNo": 2023003,
+        "IsimSoyisim": "Mehmet Kaya",
+        "Sinif": 12,
+        "Dersler": ["Tarih", "Coğrafya", "İngilizce"]
+    },
+    {
+        "OgrenciNo": 2023004,
+        "IsimSoyisim": "Zeynep Akgün",
+        "Sinif": 11,
+        "Dersler": ["Kimya", "Fizik", "Matematik"]
+    },
+    {
+        "OgrenciNo": 2023005,
+        "IsimSoyisim": "Mustafa Öztürk",
+        "Sinif": 9,
+        "Dersler": ["Biyoloji", "Türkçe", "Fizik"]
+    }
+]

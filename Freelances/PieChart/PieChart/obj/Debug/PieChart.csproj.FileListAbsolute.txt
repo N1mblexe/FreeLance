@@ -1,0 +1,11 @@
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.csproj.AssemblyReference.cache
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.csproj.SuggestedBindingRedirects.cache
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.Form1.resources
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.Properties.Resources.resources
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.csproj.GenerateResource.cache
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.csproj.CoreCompileInputs.cache
+C:\Users\kahra\source\repos\PieChart\PieChart\bin\Debug\PieChart.exe.config
+C:\Users\kahra\source\repos\PieChart\PieChart\bin\Debug\PieChart.exe
+C:\Users\kahra\source\repos\PieChart\PieChart\bin\Debug\PieChart.pdb
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.exe
+C:\Users\kahra\source\repos\PieChart\PieChart\obj\Debug\PieChart.pdb

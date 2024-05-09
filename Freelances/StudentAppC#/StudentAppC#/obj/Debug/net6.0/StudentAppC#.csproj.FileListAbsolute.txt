@@ -1,0 +1,17 @@
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\StudentAppC#.exe
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\StudentAppC#.deps.json
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\StudentAppC#.runtimeconfig.json
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\StudentAppC#.dll
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\StudentAppC#.pdb
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.csproj.AssemblyReference.cache
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.AssemblyInfoInputs.cache
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.AssemblyInfo.cs
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.csproj.CoreCompileInputs.cache
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.csproj.CopyComplete
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.dll
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\refint\StudentAppC#.dll
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.pdb
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\StudentAppC#.genruntimeconfig.cache
+C:\Users\kahra\source\repos\StudentAppC#\StudentAppC#\obj\Debug\net6.0\ref\StudentAppC#.dll

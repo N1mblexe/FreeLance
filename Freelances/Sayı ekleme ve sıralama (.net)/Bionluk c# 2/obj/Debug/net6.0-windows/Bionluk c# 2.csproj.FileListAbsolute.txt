@@ -1,0 +1,17 @@
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\bin\Debug\net6.0-windows\Bionluk c# 2.exe
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\bin\Debug\net6.0-windows\Bionluk c# 2.deps.json
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\bin\Debug\net6.0-windows\Bionluk c# 2.runtimeconfig.json
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\bin\Debug\net6.0-windows\Bionluk c# 2.dll
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\bin\Debug\net6.0-windows\Bionluk c# 2.pdb
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.csproj.AssemblyReference.cache
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk_c__2.Form1.resources
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.csproj.GenerateResource.cache
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.AssemblyInfoInputs.cache
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.AssemblyInfo.cs
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.csproj.CoreCompileInputs.cache
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.dll
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\refint\Bionluk c# 2.dll
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.pdb
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\Bionluk c# 2.genruntimeconfig.cache
+C:\Users\kahra\source\repos\Bionluk c# 2\Bionluk c# 2\obj\Debug\net6.0-windows\ref\Bionluk c# 2.dll

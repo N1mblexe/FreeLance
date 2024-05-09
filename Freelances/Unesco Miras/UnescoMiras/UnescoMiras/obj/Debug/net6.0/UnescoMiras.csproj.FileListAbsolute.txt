@@ -1,0 +1,42 @@
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.exe
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.deps.json
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.runtimeconfig.json
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfoInputs.cache
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfo.cs
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.csproj.CoreCompileInputs.cache
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\refint\UnescoMiras.dll
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.genruntimeconfig.cache
+C:\Users\kahra\source\repos\UnescoMiras\UnescoMiras\obj\Debug\net6.0\ref\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.exe
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.deps.json
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.runtimeconfig.json
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfoInputs.cache
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfo.cs
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.csproj.CoreCompileInputs.cache
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\refint\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.genruntimeconfig.cache
+C:\Users\kahra\OneDrive\Masaüstü\Unesco Miras\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\ref\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.exe
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.deps.json
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.runtimeconfig.json
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\bin\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfoInputs.cache
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.AssemblyInfo.cs
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.csproj.CoreCompileInputs.cache
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\refint\UnescoMiras.dll
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.pdb
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\UnescoMiras.genruntimeconfig.cache
+C:\Users\kahra\OneDrive\Masaüstü\Freelance\2\Visual studio projesi\UnescoMiras\UnescoMiras\obj\Debug\net6.0\ref\UnescoMiras.dll
