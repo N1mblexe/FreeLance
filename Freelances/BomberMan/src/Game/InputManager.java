@@ -34,6 +34,11 @@ public class InputManager
 
     static private InputSettings inputSettings = new InputSettings();
 
+    public static InputSettings getCurrentSettings()
+    {
+        return inputSettings;
+    }
+
     public InputManager()
     {
         try

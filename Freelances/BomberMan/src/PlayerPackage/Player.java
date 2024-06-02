@@ -12,8 +12,10 @@ import Map.MapManager;
 //Bu sınıf Oyuncuyu temsil eder ve temel özelliklerini ve metodlarını taşır
 public class Player extends MonoBehaviour
 {
+    //Singleton için instance tanımı
     public static Player instance;
 
+    //State machine tasarımı içi stateler
     private AbilityStates state = AbilityStates.none;
     public String getAbility(){return state.toString();}
 
@@ -120,7 +122,7 @@ public class Player extends MonoBehaviour
                     punchAvailable = true;
                 if(state == AbilityStates.multiBomb)
                     multiBomb = true;
-                if(state == AbilityStates.shield)
+                if(state == AbilityStates.shield && !shield)
                 {
                     shield = true;
                     returnTime = 15;
@@ -171,27 +173,39 @@ public class Player extends MonoBehaviour
     }
     private void HandlePowerUpCollisions(ID nextPos)
     {
-        if(state == AbilityStates.none)
-        {
-            if (nextPos == ID.runPower)
-                state = AbilityStates.run;
-            else if (nextPos == ID.skateBoardPower)
-                state = AbilityStates.skateboard;
-            else if (nextPos == ID.punchPower)
-                state = AbilityStates.punch;
-            else if (nextPos == ID.multiBombPower)
-                state = AbilityStates.multiBomb;
-            else if (nextPos == ID.shieldPower)
-                state = AbilityStates.shield;
-
-            if(state != AbilityStates.none)
-                playerOn = ID.empty;
+        if (nextPos == ID.runPower) {
+            CleanPowerUps();
+            state = AbilityStates.run;
+        }else if (nextPos == ID.skateBoardPower) {
+            CleanPowerUps();
+            state = AbilityStates.skateboard;
+        }else if (nextPos == ID.punchPower) {
+            CleanPowerUps();
+            state = AbilityStates.punch;
+        }else if (nextPos == ID.multiBombPower) {
+            CleanPowerUps();
+            state = AbilityStates.multiBomb;
+        }else if (nextPos == ID.shieldPower) {
+            CleanPowerUps();
+            state = AbilityStates.shield;
         }
+    }
+
+    void CleanPowerUps()
+    {
+        punchAvailable = false;
+        multiBomb = false;
+        shield = false;
+        returnToNormal = false;
+        returnTime = 0;
     }
 
     private void Move(MapData mapData , Vector2 playerVelocity)
     {
         dir = playerVelocity.normalized();
+        if(state == AbilityStates.skateboard)
+            dir = new Vector2();
+
         Vector2 temp = Vector2.Addition(position , playerVelocity);
 
         HandleCollision(mapData , temp);
@@ -207,8 +221,11 @@ public class Player extends MonoBehaviour
         Vector2 bombPos = Vector2.Addition(position , dir);
         try
         {
-            if (MapManager.Instance.getCurrentMap().getDataAtPosition(bombPos) != ID.empty.ordinal())
+            var auto = MapManager.Instance.getCurrentMap().getDataAtPosition(bombPos);
+            if (auto != ID.empty.ordinal() && auto != ID.player.ordinal())
                 return;
+            if(auto == ID.player.ordinal())
+                Player.instance.playerOn = ID.bomb;
         }
         catch (Exception ignored) {
             return;
@@ -231,6 +248,8 @@ public class Player extends MonoBehaviour
         position = temp;
         try {
             playerOn = ID.fromInteger(mapData.getDataAtPosition(temp));
+            if(playerOn != ID.bomb)
+                playerOn = ID.empty;
         } catch (Exception ignored) {}
         mapData.setDataToPosition(temp , ID.player.ordinal());
     }
@@ -260,7 +279,12 @@ public class Player extends MonoBehaviour
             {
                 tempPos = Vector2.Addition(tempPos, playerVelocity);
             }
-            while (mapData.getDataAtPosition(tempPos) != ID.wall.ordinal() || mapData.getDataAtPosition(tempPos) != ID.breakableWall.ordinal());
+            while (mapData.getDataAtPosition(tempPos) == ID.empty.ordinal() ||
+                    mapData.getDataAtPosition(tempPos) > 6 ||
+                    mapData.getDataAtPosition(tempPos) == ID.exit.ordinal()
+            );
+
+            int data = mapData.getDataAtPosition(Vector2.Addition(tempPos , playerVelocity));
         }catch (Exception ignored){}
 
         tempPos = Vector2.Substraction(tempPos , playerVelocity);

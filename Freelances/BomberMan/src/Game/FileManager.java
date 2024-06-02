@@ -11,11 +11,14 @@ import java.util.List;
 
 public class FileManager
 {
+
+    //Singleton tasarımı için instance
     public static FileManager instance;
 
     private String settingsFile , displayFile;
     public FileManager(String settingsFile , String displayFile)
     {
+        //Singleton için instance boşsa instance oluşturulan objeyi tutuyor
         if(instance == null)
             instance = this;
 

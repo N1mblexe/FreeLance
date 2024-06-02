@@ -5,8 +5,9 @@ import Game.BomberMan;
 import Game.Vector2;
 import Map.ID;
 import Map.MapData;
-import Map.MapManager;
 
+
+//Factory design için kullanılan ana sınıf
 public class BaseEnemy extends MonoBehaviour implements IEnemy
 {
     private ID enemyOn = ID.empty;

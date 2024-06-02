@@ -2,9 +2,11 @@ package Game;
 
 import Behaviour.BehaviourManager;
 import Enemies.EnemyManager;
+import Map.MapData;
 import Map.MapManager;
 import PlayerPackage.Player;
 
+import java.util.List;
 import java.util.Scanner;
 
 //Bu sınıf oyunun oynanmasını sağlayan asıl sınıf (oyunu oynamak için bu sınıftan bir obje oluşturun ve run() fonksiyonunu çağırın)
@@ -24,9 +26,9 @@ public class BomberMan
     //Constructor ile yeni bir Map.MapManager oluştur ve dosyaların adlarını map manager'a yolla
     public BomberMan()
     {
-        mapManager = new MapManager(new String[]{"Map1.txt" , "Map2.txt"});
+        mapManager = new MapManager(new String[]{"Files/Map1.txt" , "Files/Map2.txt"});
         enemyManager = new EnemyManager();
-        fileManager = new FileManager("settingsCFG.txt" , "displayCFG.txt");
+        fileManager = new FileManager("Files/settingsCFG.txt" , "Files/displayCFG.txt");
         inputManager = new InputManager();
     }
 
@@ -97,6 +99,7 @@ public class BomberMan
         {
             if(mapManager.NextMap())
             {
+                enemyManager.ClearEnemyCache();
                 nextMap = false;
                 RunMap();
             }
@@ -181,22 +184,41 @@ public class BomberMan
     private void DisplayHowToPlay() {
         System.out.println("How to play:");
 
+        try {
+            InputManager.InputSettings inputSettings = FileManager.instance.GetInputSettings();
+            MapData.DisplaySettings displaySettings = FileManager.instance.GetDisplaySettings();
+
+            List<String> chars = displaySettings.getDisplayChars();
+
         System.out.println("Controls:");
-        System.out.println("\t-w, a, s, d: Movement");
-        System.out.println("\t-e: Place a bomb in the direction you are facing");
+        System.out.println("\t- " + inputSettings.moveKeys[2] +  " , " + inputSettings.moveKeys[0] +" , " + inputSettings.moveKeys[3] + " , " +  inputSettings.moveKeys[1] + ": Movement");
+        System.out.println("\t- " + inputSettings.bombPlaceKey +  " : Place a bomb in the direction you are facing");
+        System.out.println("\t- " + inputSettings.abilityKey + " : Use ability (if available)");
 
         System.out.println("\nUnits:");
-        System.out.println("\tO: Player.Player");
-        System.out.println("\t□□□: Unbreakable walls");
-        System.out.println("\t#: Breakable walls");
-        System.out.println("\t!: BomberMan.Bomb");
-        System.out.println("\tX: Objective (reach this point)");
+
+
+        System.out.println("\t " + chars.get(1)     + ": Player");
+        System.out.println("\t " + chars.get(2)     + ": Unbreakable walls");
+        System.out.println("\t " + chars.get(3)     + ": Objective");
+        System.out.println("\t " + chars.get(5)     + ": Bomb");
+        System.out.println("\t " + chars.get(6)     + ": Breakable Walls");
+        System.out.println("\t " + chars.get(7)     + ": Run ability");
+        System.out.println("\t " + chars.get(8)     + ": Skateboard Ability");
+        System.out.println("\t " + chars.get(9)     + ": Punch Ability");
+        System.out.println("\t " + chars.get(10)    + ": Multi bomb ability");
+        System.out.println("\t " + chars.get(11)    + ": Shield Ability (Lasts 15 round)");
+        System.out.println("\t " + chars.get(12)    + ": Horizontal Enemy");
+        System.out.println("\t " + chars.get(13)    + ": Vertical Enemy");
+
 
         System.out.println("\nAbout the Game:");
         System.out.println("You can place bombs to destroy breakable walls.");
         System.out.println("Bombs explode after 4 steps when placed.");
         System.out.println("Bombs also damage the player (you only have 1 life).");
-        System.out.println("BomberMan.Bomb radius = 2");
+        System.out.println("Bomb radius = 2");
+
+        } catch (Exception e) {}
     }
 
 }

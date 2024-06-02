@@ -13,9 +13,19 @@ public class MapData
     {
         private List<String> chars;
 
+        public List<String> getDisplayChars()
+        {
+            return chars;
+        }
+
         public void setSettings(String[] val)
         {
             chars = Arrays.stream(val).toList();
+        }
+
+        public DisplaySettings()
+        {
+            chars = new ArrayList<>();
         }
 
         public static DisplaySettings DefaultSettings()

@@ -21,7 +21,18 @@ public class EnemyManager
         enemies = new ArrayList<BaseEnemy>();
     }
 
-    public void InitEnemies() {
+    public void ClearEnemyCache()
+    {
+        for (var enemy: enemies)
+        {
+            BehaviourManager.DeleteBehaviour(enemy);
+        }
+
+        enemies = new ArrayList<>();
+    }
+
+    public void InitEnemies()
+    {
         for (var enemy: enemies)
             BehaviourManager.DeleteBehaviour(enemy);
 
@@ -40,7 +51,6 @@ public class EnemyManager
             enemies.add(BaseEnemy.getEnemy(enemyTypes.get(i), pos));
             i++;
         }
-
     }
 
     private BaseEnemy SpawnRandomEnemy(MapData mapData) {
