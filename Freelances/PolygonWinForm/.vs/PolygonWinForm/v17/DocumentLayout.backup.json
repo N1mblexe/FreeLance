@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|c:\\users\\ahmet \u00E7evik\\source\\repos\\polygonwinform\\polygonwinform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|solutionrelative:polygonwinform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|c:\\users\\ahmet \u00E7evik\\source\\repos\\polygonwinform\\polygonwinform\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|solutionrelative:polygonwinform\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|c:\\users\\ahmet \u00E7evik\\source\\repos\\polygonwinform\\polygonwinform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|solutionrelative:polygonwinform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|c:\\users\\ahmet \u00E7evik\\source\\repos\\polygonwinform\\polygonwinform\\colorrgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|solutionrelative:polygonwinform\\colorrgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|c:\\users\\ahmet \u00E7evik\\source\\repos\\polygonwinform\\polygonwinform\\point2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05E4A15-972F-45A3-AAA2-6920F34EAE2F}|PolygonWinForm\\PolygonWinForm.csproj|solutionrelative:polygonwinform\\point2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Program.cs",
+              "RelativeDocumentMoniker": "PolygonWinForm\\Program.cs",
+              "ToolTip": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Program.cs",
+              "RelativeToolTip": "PolygonWinForm\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T09:10:22.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Polygon.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Polygon.cs",
+              "RelativeDocumentMoniker": "PolygonWinForm\\Polygon.cs",
+              "ToolTip": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Polygon.cs",
+              "RelativeToolTip": "PolygonWinForm\\Polygon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T09:14:53.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Form1.cs",
+              "RelativeDocumentMoniker": "PolygonWinForm\\Form1.cs",
+              "ToolTip": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Form1.cs",
+              "RelativeToolTip": "PolygonWinForm\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T09:23:58.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ColorRGB.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\ColorRGB.cs",
+              "RelativeDocumentMoniker": "PolygonWinForm\\ColorRGB.cs",
+              "ToolTip": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\ColorRGB.cs",
+              "RelativeToolTip": "PolygonWinForm\\ColorRGB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T09:04:05.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Point2D.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Point2D.cs",
+              "RelativeDocumentMoniker": "PolygonWinForm\\Point2D.cs",
+              "ToolTip": "C:\\Users\\Ahmet \u00C7evik\\source\\repos\\PolygonWinForm\\PolygonWinForm\\Point2D.cs",
+              "RelativeToolTip": "PolygonWinForm\\Point2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T08:50:48.421Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
