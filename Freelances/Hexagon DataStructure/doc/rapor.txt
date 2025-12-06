@@ -1,0 +1,86 @@
+================================================================================
+                    ALTIGEN ONCELIKLI KUYRUK SIMULASYONU
+                              PROJE RAPORU
+================================================================================
+
+1. GIRIS
+--------
+Bu projede, altigen (hexagon) seklinde temsil edilen oncelikli kuyruk veri 
+yapilari kullanilarak bir simulasyon gelistirilmistir. Her altigen en fazla 
+6 adet ikili arama agaci (BST) tutabilmektedir.
+
+2. VERI YAPILARI
+----------------
+
+2.1 Node (Dugum)
+- Ikili arama agacinin temel birimini olusturur.
+- value: Tam sayi deger
+- left: Sol cocuk isaretcisi
+- right: Sag cocuk isaretcisi
+
+2.2 BST (Ikili Arama Agaci)
+- Standart BST yapisini uygular.
+- Onemli: Esit degerler SOLA eklenir.
+- Metodlar:
+  * insert(int): Deger ekler
+  * getHeight(): Agac yuksekligini hesaplar
+  * postorderExtract(): Postorder sirada degerleri cikarir
+  * getRootValue(): Kok degerini dondurur
+  * clear(): Tum dugumleri siler
+
+2.3 Hexagon (Altigen/Kuyruk)
+- En fazla 6 BST tutar.
+- FIFO ve Oncelikli cikarma destekler.
+- Metodlar:
+  * enqueue(BST*): Kuyruga ekler
+  * dequeueFIFO(): Onde bekleyeni cikarir
+  * dequeuePriority(): En yuksek oncelikliyi cikarir (yukseklige gore)
+  * getDisplayValue(): Gosterim degerini hesaplar
+
+2.4 Manager (Yonetici)
+- Tum simulasyonu yonetir.
+- Dosya okuma, tur yonetimi ve goruntuleme islerini yapar.
+
+3. ALGORITMA
+------------
+
+3.1 Dosya Okuma
+- Data.txt satirlari okunur.
+- Her satirdaki sayilar bir BST'ye eklenir.
+- Her BST mevcut altgene eklenir.
+- Altigen dolunca yeni altigen olusturulur.
+
+3.2 Tur Mantigi
+- Tek turlar (1,3,5...): FIFO cikarma
+- Cift turlar (2,4,6...): Oncelikli cikarma (en yuksek agac)
+
+3.3 Goc (Migration) Algoritmasi
+- Cikan BST postorder sirada parcalanir.
+- Degerler sagdaki altgenin BST'lerine round-robin eklenir.
+- Kuyruk sonuna gelinince basa donulur.
+
+4. PERFORMANS
+-------------
+- STL kullanilmamistir.
+- Template kullanilmamistir.
+- Verimli bellek yonetimi saglanmistir.
+- 50.000+ satir veri ile test edilmistir.
+
+5. DERLEME VE CALISTIRMA
+------------------------
+Derleme:
+  make
+
+Calistirma:
+  ./bin/hexagon_sim.exe
+
+Temizlik:
+  make clean
+
+6. SONUC
+--------
+Proje, verilen gereksinimleri eksiksiz karsilamaktadir. Nesne yonelimli 
+yaklasim ile kod yazilmis, bellek yonetimi saglanmis ve performans 
+optimizasyonu yapilmistir.
+
+================================================================================

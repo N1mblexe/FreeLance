@@ -1,0 +1,39 @@
+Hexagonal Priority Queue Simulation
+====================================
+
+Bu proje, MinGW C++ ortaminda derlenen bir Altigen Oncelikli Kuyruk Simulasyonudur.
+
+Ozellikler:
+- Her altigen (hexagon) en fazla 6 adet ikili arama agaci (BST) tutar.
+- BST'lerde esit deger sola eklenir.
+- Oncelik agac yuksekligi ile belirlenir.
+- DisplayValue = (Onde bekleyen agacin koku) / (En yuksek oncelikli agacin koku) (tam sayi bolumu)
+
+Calistirma:
+1. make komutu ile derleyin.
+2. bin/hexagon_sim.exe dosyasini calistirin.
+3. Data.txt dosyasindan veri okunur.
+4. Kullanicidan tur sayisi istenir ve simulasyon baslar.
+
+Dosya Yapisi:
+- src/       : Kaynak dosyalari (.cpp)
+- include/   : Baslik dosyalari (.h)
+- lib/       : Object dosyalari (.o)
+- bin/       : Calistirilabilir dosya (.exe)
+- doc/       : Rapor
+- Data.txt   : Giris verisi
+- makefile   : Derleme scripti
+
+Notlar:
+- STL veya Template kullanilmamistir.
+- Tum siniflar ayri baslik ve kaynak dosyalarinda tanimlanmistir.
+- Bellek yonetimi destructor'lar ile saglanmistir.
+- 50.000+ satir veri ile test edilmistir.
+- 50.000+ satir veride oluşan yavaşlamanın sebebi algoritma değil print fonksiyonudur.
+
+ÖNEMLİ
+
+1) Performans ölçümleri (özellikle 50.000+ satırlık verilerle) yaparken mutlaka DEBUG modunu kullanın: ./bin/hexagon_sim.exe debug veya ./bin/hexagon_sim.exe -d — bu modda görselleştirme kapatılır ve yalnızca yükleme/simulasyon süreleri raporlanır.
+
+2) Zaman sonuçlarını raporlarken DEBUG modunun kullanıldığını açıkça belirtin; görselleştirme açıkken alınan süreler yanıltıcıdır ve karşılaştırmaya uygun değildir.
+
