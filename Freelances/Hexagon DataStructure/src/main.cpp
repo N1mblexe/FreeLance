@@ -1,21 +1,20 @@
-#include "../include/Manager.h"
+#include "../include/Manager.hpp"
 #include <iostream>
 #include <cstring>
+#include <limits>
 
+// Program giriş noktası: Manager oluşturulur, dosya okunur ve simülasyon çalıştırılır
 int main(int argc, char **argv)
 {
     Manager manager;
-    bool debug = false;
-    if (argc > 1)
-    {
-        if (std::strcmp(argv[1], "debug") == 0 || std::strcmp(argv[1], "-d") == 0)
-            debug = true;
-    }
-    manager.setDebug(debug);
     manager.readDataFile("Data.txt");
     int turns;
-    std::cout << "Enter number of turns: ";
+    std::cout << "Tur sayısını girin: ";
     std::cin >> turns;
     manager.runSimulation(turns);
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Çıkmak için ENTER tuşuna basın..." << std::endl;
+    std::cin.get();
     return 0;
 }

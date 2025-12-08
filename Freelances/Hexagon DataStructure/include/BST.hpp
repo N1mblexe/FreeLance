@@ -1,7 +1,7 @@
-#ifndef BST_H
-#define BST_H
+#ifndef BST_HPP
+#define BST_HPP
 
-#include "Node.h"
+#include "Node.hpp"
 
 class BST
 {
@@ -22,4 +22,4 @@ private:
     void clearHelper(Node *node);
 };
 
-#endif // BST_H
+#endif // BST_HPP

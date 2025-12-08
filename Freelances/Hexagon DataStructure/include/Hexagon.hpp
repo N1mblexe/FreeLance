@@ -1,7 +1,7 @@
-#ifndef HEXAGON_H
-#define HEXAGON_H
+#ifndef HEXAGON_HPP
+#define HEXAGON_HPP
 
-#include "BST.h"
+#include "BST.hpp"
 
 class Hexagon
 {
@@ -16,10 +16,11 @@ public:
     int getDisplayValue() const;
     int getSize() const;
     BST *getBST(int idx) const;
+    void printCorners() const;
 
 private:
     BST *arr[6];
     int size;
 };
 
-#endif // HEXAGON_H
+#endif // HEXAGON_HPP

@@ -1,4 +1,6 @@
-#include "Node.h"
+#include "Node.hpp"
+
+// Node sınıfı: BST düğümü, değer ve iki çocuk işaretçisi tutar
 
 Node::Node(int val)
 {

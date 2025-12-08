@@ -1,7 +1,7 @@
-#ifndef MANAGER_H
-#define MANAGER_H
+#ifndef MANAGER_HPP
+#define MANAGER_HPP
 
-#include "Hexagon.h"
+#include "Hexagon.hpp"
 
 class Manager
 {
@@ -10,13 +10,11 @@ public:
     ~Manager();
     void readDataFile(const char *filename);
     void runSimulation(int turns);
-    void visualize() const;
-    void setDebug(bool d);
+    void visualize(bool showDetails = false) const;
 
 private:
     Hexagon **hexagons;
     int hexagonCount;
-    bool debugMode;
 };
 
-#endif // MANAGER_H
+#endif // MANAGER_HPP

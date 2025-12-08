@@ -1,4 +1,5 @@
-#include <cstdio>
+#include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <ctime>
 
@@ -17,27 +18,27 @@ int main(int argc, char **argv)
 
     if (lines <= 0 || per_line <= 0)
     {
-        printf("Usage: %s [lines>0] [per_line>0] [output_path]\n", argv[0]);
+        std::cout << "Kullanım: " << argv[0] << " [satır>0] [satırbaşına>0] [çıkış_yolu]" << std::endl;
         return 1;
     }
 
-    FILE *f = fopen(outpath, "w");
-    if (!f)
+    std::ofstream f(outpath);
+    if (!f.is_open())
     {
-        perror("fopen");
+        std::cout << "Hata: Dosya açılmadı -> " << outpath << std::endl;
         return 1;
     }
 
-    srand((unsigned)time(0));
+    srand(static_cast<unsigned>(time(0)));
     for (int i = 0; i < lines; ++i)
     {
         for (int j = 0; j < per_line; ++j)
         {
             int val = rand() % 1000 + 1; // Random value between 1 and 1000
-            fprintf(f, "%d%s", val, (j == per_line - 1) ? "\n" : " ");
+            f << val << (j == per_line - 1 ? '\n' : ' ');
         }
     }
-    fclose(f);
-    printf("Generated %d lines (%d values per line) into %s\n", lines, per_line, outpath);
+    f.close();
+    std::cout << "Oluşturuldu: " << lines << " satır (" << per_line << " değer/satır) -> " << outpath << std::endl;
     return 0;
 }

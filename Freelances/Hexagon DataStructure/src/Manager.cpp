@@ -1,8 +1,11 @@
-#include "../include/Manager.h"
-#include <cstdio>
+#include "../include/Manager.hpp"
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <string>
 
 #define MAX_HEXAGONS 10000
 
@@ -10,7 +13,6 @@ Manager::Manager()
 {
     hexagons = nullptr;
     hexagonCount = 0;
-    debugMode = false;
 }
 
 Manager::~Manager()
@@ -25,31 +27,61 @@ Manager::~Manager()
     }
 }
 
-static void printProgress(int current, int total)
+// Yönetici sınıfı: dosya okuma, simülasyon döngüsü ve görselleştirme işlemlerini yönetir
+
+static void printProgress(int current, int total, bool showPercent = false)
 {
+    //  : ilerleme çubuğunu tek satırda güncelle (finalde % göster)
     int width = 40;
-    int pct = (total == 0) ? 0 : (current * 100) / total;
-    int filled = (total == 0) ? 0 : (current * width) / total;
-    printf("Loading: %d / %d (%3d%%) [", current, total, pct);
+    int pct;
+    if (total == 0)
+        pct = 0;
+    else if (current >= total)
+        pct = 100;
+    else
+        pct = (current * 100) / total;
+
+    int filled;
+    if (total == 0)
+        filled = 0;
+    else if (current >= total)
+        filled = width;
+    else
+        filled = (current * width) / total;
+
+    std::ostringstream ss;
+    ss << "Yüklenme: " << current << " / " << total << " ";
+    if (showPercent)
+        ss << "(" << std::setw(3) << pct << "% ) ";
+    ss << "[";
     for (int i = 0; i < width; ++i)
-        putchar(i < filled ? '#' : '.');
-    printf("]\n");
+        ss << (i < filled ? '#' : '.');
+    ss << "]";
+
+    std::string out = ss.str();
+    const int clearPadding = 10;
+    out += std::string(clearPadding, ' ');
+
+    std::cout << out << '\r' << std::flush;
 }
 
-void Manager::setDebug(bool d)
+static void clearScreen()
 {
-    debugMode = d;
+    //  : platforma göre terminal temizleme
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
 }
 
 void Manager::readDataFile(const char *filename)
 {
-    clock_t start = clock();
-
+    //  : veri dosyasını satır satır oku, her 6 satır bir altıgene koy
     FILE *file = fopen(filename, "r");
     if (!file)
     {
-        if (!debugMode)
-            printf("Error: Could not open '%s' for reading.\n", filename);
+        std::cout << "Hata: Dosya '" << filename << "' açılamadı." << std::endl;
         return;
     }
 
@@ -61,7 +93,6 @@ void Manager::readDataFile(const char *filename)
     int ch;
     while ((ch = fgetc(file)) != EOF)
     {
-        // Satır sayısını tahmin etmek için yeni satır karakterlerine bak
         if (ch == '\n')
             estimatedLines++;
     }
@@ -69,24 +100,28 @@ void Manager::readDataFile(const char *filename)
 
     int totalHexagons = (estimatedLines + 5) / 6;
 
-    if (!debugMode)
-    {
-        printf("\033[2J\033[H");
-        printf("Estimated lines: %d\n", estimatedLines);
-        printf("Estimated hexagons (placeholders): %d\n\n", totalHexagons);
-    }
+    std::cout << "Tahmini toplam satır: " << estimatedLines << std::endl
+              << std::endl;
+    std::cout << "Tahmini toplam altıgen: " << totalHexagons << std::endl
+              << std::endl;
 
     hexagons = new Hexagon *[MAX_HEXAGONS];
-    hexagonCount = 0;
-    Hexagon *currentHex = new Hexagon();
-    hexagons[hexagonCount++] = currentHex;
+    hexagonCount = totalHexagons;
+    for (int i = 0; i < hexagonCount; ++i)
+    {
+        hexagons[i] = new Hexagon();
+    }
+
     char line[4096];
     int lineCount = 0;
     int updateInterval = (estimatedLines > 1000) ? estimatedLines / 100 : 1;
 
+    clearScreen();
+    visualize(false);
+    printProgress(0, estimatedLines);
+
     while (fgets(line, sizeof(line), file))
     {
-        // Her satırı oku ve bir BST oluştur
         BST *tree = new BST();
         char *token = strtok(line, " ,;\t\n");
         while (token)
@@ -95,55 +130,41 @@ void Manager::readDataFile(const char *filename)
             tree->insert(val);
             token = strtok(nullptr, " ,;\t\n");
         }
-        // Oluşan BST'yi mevcut altigene ekle
-        currentHex->enqueue(tree);
+        int hexIndex = lineCount / 6;
+        if (hexIndex >= hexagonCount)
+        {
+            hexIndex = hexagonCount;
+            hexagons[hexagonCount++] = new Hexagon();
+        }
+        hexagons[hexIndex]->enqueue(tree);
         ++lineCount;
 
-        // Belirli aralıklarla ilerlemeyi göster
-        if (!debugMode && (lineCount % updateInterval == 0 || lineCount == estimatedLines))
+        if (lineCount % updateInterval == 0 || lineCount == estimatedLines)
         {
-            printf("\033[2J\033[H");
-            printProgress(lineCount, estimatedLines);
-            visualize();
-        }
-
-        // Altigen dolduysa yeni altigen oluştur
-        if (currentHex->isFull())
-        {
-            currentHex = new Hexagon();
-            hexagons[hexagonCount++] = currentHex;
+            clearScreen();
+            visualize(false);
+            printProgress(lineCount, estimatedLines, false);
         }
     }
 
-    double duration = double(clock() - start) / CLOCKS_PER_SEC;
-
-    if (!debugMode)
-    {
-        printf("\033[2J\033[H");
-        printf("Data loading complete. Total lines read: %d, Total hexagons created: %d\n\n", lineCount, hexagonCount);
-        visualize();
-    }
-    else
-    {
-        // Debug modunda sadece süre ve istatistik göster
-        printf("Data loading completed: lines=%d, hexagons=%d, time=%.3f sec\n", lineCount, hexagonCount, duration);
-    }
+    clearScreen();
+    visualize(false);
+    printProgress(lineCount, lineCount, true);
+    std::cout << std::endl
+              << "Dosya yükleme tamamlandı. Okunan satır: " << lineCount << ", Oluşan altıgen: " << hexagonCount << std::endl
+              << std::endl;
 
     fclose(file);
 }
 
 void Manager::runSimulation(int turns)
 {
-    clock_t start = clock();
-
+    //  her turda kuyruklardan ağaç çıkar ve bir sonraki altıgene göç ettir
     for (int t = 1; t <= turns; ++t)
     {
-        // Tek/çift tur ayrımı: tek - FIFO, çift - öncelikli
-        if (!debugMode)
-        {
-            printf("\033[2J\033[H");
-            printf("Simulation - Turn %d of %d\n\n", t, turns);
-        }
+        clearScreen();
+        std::cout << "Simülasyon - Tur " << t << " / " << turns << std::endl
+                  << std::endl;
         for (int i = hexagonCount - 1; i >= 0; --i)
         {
             BST *removed = nullptr;
@@ -157,7 +178,6 @@ void Manager::runSimulation(int turns)
             }
             if (removed && i + 1 < hexagonCount)
             {
-                // Postorder ile çıkarılan değerleri hedef altigene sırayla ekle
                 int *vals = nullptr;
                 int valCount = 0;
                 removed->postorderExtract(vals, valCount);
@@ -173,52 +193,58 @@ void Manager::runSimulation(int turns)
             }
             delete removed;
         }
-        if (!debugMode)
-            visualize();
+        visualize(true);
     }
 
-    double duration = double(clock() - start) / CLOCKS_PER_SEC;
-
-    if (!debugMode)
-    {
-        printf("\n=== Simulation Complete ===\n");
-        printf("Final state after %d turns:\n\n", turns);
-        visualize();
-    }
-    else
-    {
-        // Debug modu: sadece toplam süreyi yaz
-        printf("Simulation complete: turns=%d, time=%.3f sec\n", turns, duration);
-    }
+    std::cout << std::endl
+              << "=== Simülasyon Tamamlandı ===" << std::endl;
+    std::cout << "Son durum (" << turns << " tur sonrası):" << std::endl
+              << std::endl;
+    visualize(true);
 }
 
-void Manager::visualize() const
+void Manager::visualize(bool showDetails) const
 {
-    if (debugMode)
-    {
-        // Debug modu: minimal bilgi
-        int total = hexagonCount;
-        int nonEmpty = 0;
-        for (int i = 0; i < total; ++i)
-            if (hexagons[i]->getSize() > 0)
-                nonEmpty++;
-        printf("HEX=%d nonEmpty=%d\n", total, nonEmpty);
-        return;
-    }
-
-    printf("--- Hexagon Queue Overview ---\n");
-    printf("(Each hexagon shows: [Index] size=number_of_trees  DV=display_value )\n\n");
+    //  : terminalde altıgenleri 6'lı blok halinde ve isteğe bağlı detayla göster
     int perRow = 6;
     int total = hexagonCount;
-    for (int i = 0; i < total; ++i)
+
+    std::cout << "--- Altıgen Kuyruk Görünümü ---" << std::endl;
+    std::cout << "(Her satırda " << perRow << " altıgen. Boşsa 0 gösterilir.)" << std::endl
+              << std::endl;
+
+    for (int rowStart = 0; rowStart < total; rowStart += perRow)
     {
-        if (i % perRow == 0 && i != 0)
-            printf("\n");
-        int sz = hexagons[i]->getSize();
-        if (sz == 0)
-            printf("[Hex %2d] size=%d  DV=---   ", i + 1, sz);
-        else
-            printf("[Hex %2d] size=%d  DV=%3d   ", i + 1, sz, hexagons[i]->getDisplayValue());
+        for (int i = 0; i < perRow; ++i)
+        {
+            int idx = rowStart + i;
+            if (idx < total)
+            {
+                int sz = hexagons[idx]->getSize();
+                if (sz == 0)
+                    std::cout << "| " << std::setw(3) << 0 << " ";
+                else
+                    std::cout << "| " << std::setw(3) << hexagons[idx]->getDisplayValue() << " ";
+            }
+            else
+            {
+                std::cout << "| " << std::setw(3) << 0 << " ";
+            }
+        }
+        std::cout << "|" << std::endl;
     }
-    printf("\n\n");
+
+    if (total == 0)
+        std::cout << "(Hiç altıgen yok)" << std::endl;
+
+    std::cout << std::endl;
+
+    if (showDetails)
+    {
+        for (int i = 0; i < total; ++i)
+        {
+            hexagons[i]->printCorners();
+        }
+        std::cout << std::endl;
+    }
 }

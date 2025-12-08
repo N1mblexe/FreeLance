@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef NODE_HPP
+#define NODE_HPP
 
 class Node
 {
@@ -12,4 +12,4 @@ public:
     ~Node();
 };
 
-#endif // NODE_H
+#endif // NODE_HPP

@@ -1,26 +1,24 @@
-# Hexagon Priority Queue Simulation Makefile
+CXX := g++
+CXXFLAGS := -I"./include" -std=c++11 -O2 -Wall
 
-SRC_DIR = src
-INC_DIR = include
-BIN_DIR = bin
-LIB_DIR = lib
+hepsi: derle bagla calistir
 
-SRCS = $(wildcard $(SRC_DIR)/*.cpp)
-OBJS = $(patsubst $(SRC_DIR)/%.cpp,$(LIB_DIR)/%.o,$(SRCS))
-TARGET = $(BIN_DIR)/hexagon_sim.exe
+derle:
+	@mkdir -p ./lib ./bin
+	$(CXX) $(CXXFLAGS) -c ./src/main.cpp -o ./lib/main.o
+	$(CXX) $(CXXFLAGS) -c ./src/BST.cpp -o ./lib/BST.o
+	$(CXX) $(CXXFLAGS) -c ./src/Hexagon.cpp -o ./lib/Hexagon.o
+	$(CXX) $(CXXFLAGS) -c ./src/Manager.cpp -o ./lib/Manager.o
+	$(CXX) $(CXXFLAGS) -c ./src/Node.cpp -o ./lib/Node.o
 
-CXX = g++
-CXXFLAGS = -I$(INC_DIR) -Wall -O2
+bagla:
+	@mkdir -p ./bin
+	$(CXX) ./lib/main.o ./lib/BST.o ./lib/Hexagon.o ./lib/Manager.o ./lib/Node.o -o ./bin/program
 
-all: $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-$(LIB_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+calistir:
+	./bin/program
 
 clean:
-	rm -f $(LIB_DIR)/*.o $(TARGET)
+	rm -f ./lib/*.o ./bin/program
 
-.PHONY: all clean
+.PHONY: hepsi derle bagla calistir clean

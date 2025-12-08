@@ -1,8 +1,10 @@
-#include "Hexagon.h"
+#include <cstdio>
+#include <iostream>
+#include <iomanip>
+#include "Hexagon.hpp"
 
 Hexagon::Hexagon()
 {
-    // Başlangıçta tüm BST işaretçileri boş
     for (int i = 0; i < 6; ++i)
     {
         arr[i] = nullptr;
@@ -12,7 +14,6 @@ Hexagon::Hexagon()
 
 Hexagon::~Hexagon()
 {
-    // Bulunan tüm BST'leri sil
     for (int i = 0; i < size; ++i)
     {
         delete arr[i];
@@ -21,19 +22,16 @@ Hexagon::~Hexagon()
 
 bool Hexagon::isFull() const
 {
-    // 6'ya ulaştıysa dolu
     return size == 6;
 }
 
 bool Hexagon::isEmpty() const
 {
-    // Hiç öğe yoksa boş
     return size == 0;
 }
 
 void Hexagon::enqueue(BST *tree)
 {
-    // Yer varsa sona ekle
     if (isFull())
         return;
     arr[size++] = tree;
@@ -41,7 +39,6 @@ void Hexagon::enqueue(BST *tree)
 
 BST *Hexagon::dequeueFIFO()
 {
-    // Önden çıkar (FIFO)
     if (isEmpty())
         return nullptr;
     BST *ret = arr[0];
@@ -55,7 +52,6 @@ BST *Hexagon::dequeueFIFO()
 
 BST *Hexagon::dequeuePriority()
 {
-    // En yüksek ağaç yüksekliğine sahip olanı bul ve çıkar
     if (isEmpty())
         return nullptr;
     int maxIdx = 0;
@@ -80,7 +76,6 @@ BST *Hexagon::dequeuePriority()
 
 int Hexagon::getDisplayValue() const
 {
-    // Önde bekleyen ağacın kökünü ve en yüksek öncelikli ağacın kökünü al
     if (isEmpty())
         return 0;
     int rootFront = arr[0]->getRootValue();
@@ -98,20 +93,36 @@ int Hexagon::getDisplayValue() const
     int rootMax = arr[maxIdx]->getRootValue();
     if (rootMax == 0)
         return 0;
-    // Tam sayı bölümü
     return rootFront / rootMax;
 }
 
 int Hexagon::getSize() const
 {
-    // Mevcut ağaç sayısı
     return size;
 }
 
 BST *Hexagon::getBST(int idx) const
 {
-    // Geçerli indeks kontrolü
     if (idx < 0 || idx >= size)
         return nullptr;
     return arr[idx];
+}
+
+// Hexagon sınıfı: 6 adet BST tutar, FIFO ve öncelik çıkarma mekanizmaları sağlar
+void Hexagon::printCorners() const
+{
+    //  : köşe değerlerini yazdır
+    for (int i = 0; i < 6; ++i)
+    {
+        if (i < size && arr[i] != nullptr)
+        {
+            int v = arr[i]->getRootValue();
+            std::cout << "| " << std::setw(3) << v << " ";
+        }
+        else
+        {
+            std::cout << "| " << std::setw(3) << 0 << " ";
+        }
+    }
+    std::cout << "|" << std::endl;
 }
