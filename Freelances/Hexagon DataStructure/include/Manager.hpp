@@ -2,6 +2,7 @@
 #define MANAGER_HPP
 
 #include "Hexagon.hpp"
+#include <string>
 
 class Manager
 {
@@ -15,6 +16,9 @@ public:
 private:
     Hexagon **hexagons;
     int hexagonCount;
+
+    mutable std::string accumulated;
+    void flushAccumulated() const;
 };
 
 #endif // MANAGER_HPP

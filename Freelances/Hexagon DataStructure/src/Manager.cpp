@@ -100,8 +100,7 @@ void Manager::readDataFile(const char *filename)
 
     int totalHexagons = (estimatedLines + 5) / 6;
 
-    std::cout << "Tahmini toplam satır: " << estimatedLines << std::endl
-              << std::endl;
+    std::cout << "Toplam satır: " << estimatedLines << std::endl;
     std::cout << "Tahmini toplam altıgen: " << totalHexagons << std::endl
               << std::endl;
 
@@ -116,9 +115,10 @@ void Manager::readDataFile(const char *filename)
     int lineCount = 0;
     int updateInterval = (estimatedLines > 1000) ? estimatedLines / 100 : 1;
 
-    clearScreen();
-    visualize(false);
-    printProgress(0, estimatedLines);
+    visualize(true);
+
+    size_t count = 0;
+    size_t printThreshold = 1000;
 
     while (fgets(line, sizeof(line), file))
     {
@@ -141,14 +141,20 @@ void Manager::readDataFile(const char *filename)
 
         if (lineCount % updateInterval == 0 || lineCount == estimatedLines)
         {
-            clearScreen();
-            visualize(false);
+            if (count++ >= printThreshold)
+            {
+                visualize(true);
+                count = 0;
+            }
+            else
+            {
+                visualize(false);
+            }
             printProgress(lineCount, estimatedLines, false);
         }
     }
 
-    clearScreen();
-    visualize(false);
+    visualize(true);
     printProgress(lineCount, lineCount, true);
     std::cout << std::endl
               << "Dosya yükleme tamamlandı. Okunan satır: " << lineCount << ", Oluşan altıgen: " << hexagonCount << std::endl
@@ -203,15 +209,21 @@ void Manager::runSimulation(int turns)
     visualize(true);
 }
 
+void Manager::flushAccumulated() const
+{
+    std::cout << accumulated;
+
+    accumulated.clear();
+    std::cout << std::endl;
+}
+
 void Manager::visualize(bool showDetails) const
 {
-    //  : terminalde altıgenleri 6'lı blok halinde ve isteğe bağlı detayla göster
     int perRow = 6;
     int total = hexagonCount;
 
-    std::cout << "--- Altıgen Kuyruk Görünümü ---" << std::endl;
-    std::cout << "(Her satırda " << perRow << " altıgen. Boşsa 0 gösterilir.)" << std::endl
-              << std::endl;
+    std::ostringstream out;
+    out << std::endl;
 
     for (int rowStart = 0; rowStart < total; rowStart += perRow)
     {
@@ -220,31 +232,32 @@ void Manager::visualize(bool showDetails) const
             int idx = rowStart + i;
             if (idx < total)
             {
-                int sz = hexagons[idx]->getSize();
+                int sz = 0;
+                if (hexagons && hexagons[idx])
+                    sz = hexagons[idx]->getSize();
+
                 if (sz == 0)
-                    std::cout << "| " << std::setw(3) << 0 << " ";
+                    out << "| " << std::setw(3) << 0 << " ";
                 else
-                    std::cout << "| " << std::setw(3) << hexagons[idx]->getDisplayValue() << " ";
+                    out << "| " << std::setw(3) << hexagons[idx]->getDisplayValue() << " ";
             }
             else
             {
-                std::cout << "| " << std::setw(3) << 0 << " ";
+                out << "| " << std::setw(3) << 0 << " ";
             }
         }
-        std::cout << "|" << std::endl;
+        out << "|" << std::endl;
     }
 
     if (total == 0)
-        std::cout << "(Hiç altıgen yok)" << std::endl;
+        out << "(Hiç altıgen yok)" << std::endl;
 
-    std::cout << std::endl;
+    out << std::endl;
 
-    if (showDetails)
-    {
-        for (int i = 0; i < total; ++i)
-        {
-            hexagons[i]->printCorners();
-        }
-        std::cout << std::endl;
-    }
+    accumulated += out.str();
+
+    if (!showDetails)
+        return;
+
+    flushAccumulated();
 }

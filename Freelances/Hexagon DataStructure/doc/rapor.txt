@@ -5,82 +5,108 @@
 
 1. GIRIS
 --------
-Bu projede, altigen (hexagon) seklinde temsil edilen oncelikli kuyruk veri 
-yapilari kullanilarak bir simulasyon gelistirilmistir. Her altigen en fazla 
-6 adet ikili arama agaci (BST) tutabilmektedir.
+Bu proje, altigen (hexagon) olarak modellenen öncelikli kuyruk veri yapıları
+kullanılarak bir simülasyon uygulaması sunar. Her altigen en fazla 6 adet
+ikili arama ağacı (BST) tutabilir. Amaç; dosyadan okunan veri setleri ile
+kuyruk işlemlerini (FIFO ve öncelikli) simüle etmek ve çıkan ağaçları göç
+(migration) mekanizmasıyla başka altgenlere dağıtmaktır.
 
 2. VERI YAPILARI
 ----------------
 
-2.1 Node (Dugum)
-- Ikili arama agacinin temel birimini olusturur.
-- value: Tam sayi deger
-- left: Sol cocuk isaretcisi
-- right: Sag cocuk isaretcisi
+2.1 Node (Düğüm)
+- İkili arama ağacının temel birimini oluşturur.
+- Değişkenler: value (int), left (Node*), right (Node*).
+- Not: Uygulamada bellek tahsisi ve serbest bırakma dikkatle yönetilir.
 
-2.2 BST (Ikili Arama Agaci)
-- Standart BST yapisini uygular.
-- Onemli: Esit degerler SOLA eklenir.
-- Metodlar:
-  * insert(int): Deger ekler
-  * getHeight(): Agac yuksekligini hesaplar
-  * postorderExtract(): Postorder sirada degerleri cikarir
-  * getRootValue(): Kok degerini dondurur
-  * clear(): Tum dugumleri siler
+2.2 BST (İkili Arama Ağacı)
+- Standart BST davranışı uygulanır.
+- Önemli: Eşit değerler SOLA eklenir (projedeki karar budur).
+- Ana metotlar:
+  * insert(int): Değer ekler
+  * getHeight(): Ağacın yüksekliğini hesaplar
+  * postorderExtract(): Postorder sıra ile değerleri çıkarır (göç için)
+  * getRootValue(): Kök değerini döndürür
+  * clear(): Ağacı tamamen serbest bırakır
 
-2.3 Hexagon (Altigen/Kuyruk)
-- En fazla 6 BST tutar.
-- FIFO ve Oncelikli cikarma destekler.
-- Metodlar:
-  * enqueue(BST*): Kuyruga ekler
-  * dequeueFIFO(): Onde bekleyeni cikarir
-  * dequeuePriority(): En yuksek oncelikliyi cikarir (yukseklige gore)
-  * getDisplayValue(): Gosterim degerini hesaplar
+2.3 Hexagon (Altigen / Kuyruk)
+- Her altigen en çok 6 BST içerir.
+- İki tür çıkarma desteklenir:
+  * FIFO (sıradaki BST çıkarılır)
+  * Öncelikli (priority): Yüksekliği en büyük olan BST çıkarılır
+- Ana metotlar:
+  * enqueue(BST*): Kuyruğa BST ekler
+  * dequeueFIFO(): Öndeki BST'yi çıkarır
+  * dequeuePriority(): En yüksek önceliğe sahip BST'yi çıkarır
+  * getDisplayValue(): Görüntüleme/özet değeri hesaplar
 
-2.4 Manager (Yonetici)
-- Tum simulasyonu yonetir.
-- Dosya okuma, tur yonetimi ve goruntuleme islerini yapar.
+2.4 Manager (Yönetici)
+- Simülasyon akışını yönetir: dosya okuma, tur yönetimi, görüntüleme,
+  göç (migration) işlemlerinin koordinasyonu.
 
 3. ALGORITMA
 ------------
 
 3.1 Dosya Okuma
-- Data.txt satirlari okunur.
-- Her satirdaki sayilar bir BST'ye eklenir.
-- Her BST mevcut altgene eklenir.
-- Altigen dolunca yeni altigen olusturulur.
+- Uygulama, çalışma dizininde bulunan `Data.txt` dosyasındaki satırları okur.
+- Her satır bir BST oluşturmak için içindeki sayılar kullanılarak ağaca eklenir.
+- Oluşan BST mevcut altigene eklenir; altigen dolduğunda yeni bir altigen
+  oluşturulur.
 
-3.2 Tur Mantigi
-- Tek turlar (1,3,5...): FIFO cikarma
-- Cift turlar (2,4,6...): Oncelikli cikarma (en yuksek agac)
+3.2 Tur Mantığı
+- Turlar sıra ile gerçekleştirilir.
+  * Tek turlar (1,3,5,...): FIFO çıkarma uygulanır (kuyruğun başından çıkar).
+  * Çift turlar (2,4,6,...): Öncelikli çıkarma uygulanır (en yüksek ağaç).
 
-3.3 Goc (Migration) Algoritmasi
-- Cikan BST postorder sirada parcalanir.
-- Degerler sagdaki altgenin BST'lerine round-robin eklenir.
-- Kuyruk sonuna gelinince basa donulur.
+3.3 Göç (Migration) Algoritması
+- Kuyruktan çıkan BST, `postorderExtract()` ile postorder sırada değere
+  ayrıştırılır.
+- Elde edilen değerler, sağdaki altigenin BST'lerine round-robin (sırasal)
+  olarak eklenir.
+- Sağdaki altigen yoksa veya BST kapasitesi doluysa uygun şekilde yeni
+  altigen oluşturulması sağlanır (uygulama içerisinde yönetilir).
 
-4. PERFORMANS
--------------
-- STL kullanilmamistir.
-- Template kullanilmamistir.
-- Verimli bellek yonetimi saglanmistir.
-- 50.000+ satir veri ile test edilmistir.
+4. UYGULAMA MIMARISI VE DOSYA YAPISI
+-----------------------------------
+- `include/` : Sınıf tanımları (.hpp)
+  * `Node.hpp`, `BST.hpp`, `Hexagon.hpp`, `Manager.hpp`
+- `src/` : Kaynak dosyaları (.cpp)
+  * `Node.cpp`, `BST.cpp`, `Hexagon.cpp`, `Manager.cpp`, `main.cpp`
+- `lib/` : Derlenmiş nesne dosyaları (.o)
+- `bin/` : Derlenmiş çalıştırılabilir dosya (`program`)
+- `doc/` : Bu rapor ve dökümantasyon
+- `Test/` : Test verileri ve yardımcı araçlar (ör. `generate_data.cpp`)
 
-5. DERLEME VE CALISTIRMA
+5. DERLEME VE ÇALISTIRMA
 ------------------------
-Derleme:
+Derleme (Linux):
   make
 
-Calistirma:
-  ./bin/hexagon_sim.exe
+Oluşan ikili dosya (örnek):
+  `./bin/program`
+
+Çalıştırma örnekleri:
+- Eğer program varsayılan olarak `Data.txt` dosyasını okuyorsa:
+  ./bin/program
+- Eğer program komut satırından dosya yolu alıyorsa:
+  ./bin/program Data.txt
 
 Temizlik:
   make clean
 
-6. SONUC
+6. TEST VE PERFORMANS
+---------------------
+- STL kullanılmamıştır; kendi veri yapıları tercih edilmiştir.
+- Şablon (template) kullanılmamıştır.
+- Bellek yönetimi manuel yapıldığından bellek sızıntılarına dikkat edilmelidir;
+  testler sırasında `valgrind` ile kontrol önerilir.
+- Proje, 50.000+ satırlık veri ile test edilmiştir (performans kabul edilebilir).
+
+7. SONUÇ
 --------
-Proje, verilen gereksinimleri eksiksiz karsilamaktadir. Nesne yonelimli 
-yaklasim ile kod yazilmis, bellek yonetimi saglanmis ve performans 
-optimizasyonu yapilmistir.
+Proje istenen işlevselliği sağlamaktadır: altigen temelli öncelikli kuyruk
+simülasyonu, göç mekanizması ve farklı çıkarma stratejileri (FIFO / priority)
+başarıyla uygulanmıştır. Yukarıda belirtilen küçük dokümantasyon ve
+isimlendirme düzeltmeleriyle proje kullanımı ve bakım kolaylaşacaktır.
 
 ================================================================================
