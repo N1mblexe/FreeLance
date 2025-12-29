@@ -1,0 +1,32 @@
+{
+  "name": "Q1 - BST to Circular Doubly Linked List",
+  "description": "Convert a BST to a sorted circular doubly linked list in-place",
+  "treeType": "BST",
+  "values": [4, 2, 6, 1, 3, 5, 7],
+  "testCases": [
+    {
+      "description": "Head should point to smallest element",
+      "expected": {"headValue": 1}
+    },
+    {
+      "description": "Tail should point to largest element",
+      "expected": {"tailValue": 7}
+    },
+    {
+      "description": "Forward traversal should be sorted ascending",
+      "expected": {"forwardOrder": [1, 2, 3, 4, 5, 6, 7]}
+    },
+    {
+      "description": "Backward traversal should be sorted descending",
+      "expected": {"backwardOrder": [7, 6, 5, 4, 3, 2, 1]}
+    },
+    {
+      "description": "List should be circular: tail->right == head",
+      "expected": {"isCircular": true}
+    },
+    {
+      "description": "Node count should match original tree",
+      "expected": {"nodeCount": 7}
+    }
+  ]
+}

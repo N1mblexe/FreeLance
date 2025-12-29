@@ -1,0 +1,53 @@
+{
+  "name": "Q2 - Reconstruct AVL from Preorder and Heights",
+  "description": "Reconstruct an AVL tree given its preorder traversal and node heights",
+  "treeType": "AVL",
+  "preorder": [10, 5, 3, 7, 15, 12, 20],
+  "heights": [3, 2, 1, 1, 2, 1, 1],
+  "testCases": [
+    {
+      "description": "Reconstruction should succeed",
+      "expected": {"success": true}
+    },
+    {
+      "description": "Node count should match input size",
+      "expected": {"nodeCount": 7}
+    },
+    {
+      "description": "Inorder traversal should be sorted",
+      "expected": {"inorder": [3, 5, 7, 10, 12, 15, 20]}
+    },
+    {
+      "description": "Tree should satisfy AVL balance property",
+      "expected": {"isBalanced": true}
+    },
+    {
+      "description": "Root should be 10",
+      "expected": {"rootValue": 10}
+    },
+    {
+      "description": "Tree height should be 3",
+      "expected": {"height": 3}
+    }
+  ],
+  "additionalTestCases": [
+    {
+      "name": "Single node tree",
+      "preorder": [42],
+      "heights": [1],
+      "expected": {"nodeCount": 1, "height": 1, "rootValue": 42}
+    },
+    {
+      "name": "Left-heavy AVL",
+      "preorder": [10, 5, 3, 15],
+      "heights": [3, 2, 1, 1],
+      "expected": {"nodeCount": 4, "isBalanced": true}
+    },
+    {
+      "name": "Invalid input - null arrays",
+      "preorder": null,
+      "heights": null,
+      "expected": {"success": false}
+    }
+  ]
+}

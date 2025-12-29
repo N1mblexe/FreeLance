@@ -1,0 +1,96 @@
+{
+  "name": "Q4 - Range Query with Statistics on 2-3-4 Tree",
+  "description": "Find all keys in a range and compute statistics (count, sum, min, max)",
+  "treeType": "Tree234",
+  "values": [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+  "testCases": [
+    {
+      "description": "Range query [12, 32] - middle range",
+      "query": {"minVal": 12, "maxVal": 32},
+      "expected": {
+        "found": true,
+        "keys": [15, 20, 25, 30],
+        "count": 4,
+        "sum": 90,
+        "min": 15,
+        "max": 30
+      }
+    },
+    {
+      "description": "Range query [1, 100] - all keys",
+      "query": {"minVal": 1, "maxVal": 100},
+      "expected": {
+        "found": true,
+        "keys": [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+        "count": 10,
+        "sum": 275,
+        "min": 5,
+        "max": 50
+      }
+    },
+    {
+      "description": "Range query [100, 200] - no keys in range",
+      "query": {"minVal": 100, "maxVal": 200},
+      "expected": {
+        "found": false,
+        "count": 0
+      }
+    },
+    {
+      "description": "Range query [20, 20] - single key",
+      "query": {"minVal": 20, "maxVal": 20},
+      "expected": {
+        "found": true,
+        "keys": [20],
+        "count": 1,
+        "sum": 20,
+        "min": 20,
+        "max": 20
+      }
+    },
+    {
+      "description": "Range query [5, 15] - left edge of tree",
+      "query": {"minVal": 5, "maxVal": 15},
+      "expected": {
+        "found": true,
+        "keys": [5, 10, 15],
+        "count": 3,
+        "sum": 30,
+        "min": 5,
+        "max": 15
+      }
+    },
+    {
+      "description": "Range query [40, 50] - right edge of tree",
+      "query": {"minVal": 40, "maxVal": 50},
+      "expected": {
+        "found": true,
+        "keys": [40, 45, 50],
+        "count": 3,
+        "sum": 135,
+        "min": 40,
+        "max": 50
+      }
+    }
+  ],
+  "additionalTestCases": [
+    {
+      "name": "Empty tree",
+      "values": [],
+      "query": {"minVal": 1, "maxVal": 100},
+      "expected": {"found": false, "count": 0}
+    },
+    {
+      "name": "Single element tree",
+      "values": [42],
+      "query": {"minVal": 40, "maxVal": 50},
+      "expected": {"found": true, "keys": [42], "count": 1, "sum": 42}
+    },
+    {
+      "name": "Invalid range (min > max)",
+      "values": [10, 20, 30],
+      "query": {"minVal": 50, "maxVal": 10},
+      "expected": {"found": false, "count": 0}
+    }
+  ]
+}
