@@ -1,11 +1,6 @@
 #ifndef Q3_TPP
 #define Q3_TPP
 
-// ============================================================================
-// Q3: Find Distance Between Two Nodes with Path
-// ============================================================================
-//
-
 #include <stack>
 #include <vector>
 
@@ -64,16 +59,16 @@ bool FindPath(BSTNode<T> *node, const T &val1, const T &val2, T *pathOut, size_t
   if (temp == nullptr)
     return false;
 
-  size_t idx = 0;
+  size_t index = 0;
   while (!pathV1.empty())
   {
-    pathOut[idx++] = pathV1.top();
+    pathOut[index++] = pathV1.top();
     pathV1.pop();
   }
 
   for (size_t i = 1; i < pathV2.size(); ++i)
-    pathOut[idx++] = pathV2[i];
-  pathSize = idx;
+    pathOut[index++] = pathV2[i];
+  pathSize = index;
 
   return true;
 }

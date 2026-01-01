@@ -61,4 +61,4 @@ AVLTree<T> *reconstructAVL(const T *preorder, const int *heights, size_t size)
     return tree;
 }
 
-#endif
+#endif //Q2_TPP

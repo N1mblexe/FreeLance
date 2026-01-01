@@ -1,11 +1,6 @@
 #ifndef Q1_TPP
 #define Q1_TPP
 
-// ============================================================================
-// Q1: Convert BST to Sorted Circular Doubly Linked List (In-Place)
-// ============================================================================
-//
-
 template <typename T>
 void ToDLLHelper(BSTNode<T> *node, BSTNode<T> *&head, BSTNode<T> *&prev)
 {
