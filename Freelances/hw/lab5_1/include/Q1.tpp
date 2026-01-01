@@ -7,15 +7,16 @@
 //
 
 template <typename T>
-void convertToDLLHelper(BSTNode<T>* root, BSTNode<T>*& head, BSTNode<T>*& prev) {
-    if (root == nullptr) 
-      return;
+void convertToDLLHelper(BSTNode<T> *root, BSTNode<T> *&head, BSTNode<T> *&prev)
+{
+    if (root == nullptr)
+        return;
 
     convertToDLLHelper(root->left, head, prev);
 
-    if (prev == nullptr) 
-        head = root; 
-    else 
+    if (prev == nullptr)
+        head = root;
+    else
     {
         root->left = prev;
         prev->right = root;
@@ -24,19 +25,20 @@ void convertToDLLHelper(BSTNode<T>* root, BSTNode<T>*& head, BSTNode<T>*& prev) 
     convertToDLLHelper(root->right, head, prev);
 }
 
-template <typename T> 
-BSTNode<T> *convertToCircularDLL(BST<T> &tree) {
-    BSTNode<T>* root = tree.getRoot();
-    
-    if (root == nullptr) 
-      return nullptr;
+template <typename T>
+BSTNode<T> *convertToCircularDLL(BST<T> &tree)
+{
+    BSTNode<T> *root = tree.getRoot();
 
-    BSTNode<T>* head = nullptr;
-    BSTNode<T>* prev = nullptr;
+    if (root == nullptr)
+        return nullptr;
+
+    BSTNode<T> *head = nullptr;
+    BSTNode<T> *prev = nullptr;
 
     convertToDLLHelper(root, head, prev);
 
-    if (head != nullptr && prev != nullptr) 
+    if (head != nullptr && prev != nullptr)
     {
         head->left = prev;
         prev->right = head;
