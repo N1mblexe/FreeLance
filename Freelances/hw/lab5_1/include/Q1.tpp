@@ -7,22 +7,22 @@
 //
 
 template <typename T>
-void convertToDLLHelper(BSTNode<T> *root, BSTNode<T> *&head, BSTNode<T> *&prev)
+void ToDLLHelper(BSTNode<T> *node, BSTNode<T> *&head, BSTNode<T> *&prev)
 {
-    if (root == nullptr)
+    if (node == nullptr)
         return;
 
-    convertToDLLHelper(root->left, head, prev);
+    ToDLLHelper(node->left, head, prev);
 
     if (prev == nullptr)
-        head = root;
+        head = node;
     else
     {
-        root->left = prev;
-        prev->right = root;
+        node->left = prev;
+        prev->right = node;
     }
-    prev = root;
-    convertToDLLHelper(root->right, head, prev);
+    prev = node;
+    ToDLLHelper(node->right, head, prev);
 }
 
 template <typename T>
@@ -36,7 +36,7 @@ BSTNode<T> *convertToCircularDLL(BST<T> &tree)
     BSTNode<T> *head = nullptr;
     BSTNode<T> *prev = nullptr;
 
-    convertToDLLHelper(root, head, prev);
+    ToDLLHelper(root, head, prev);
 
     if (head != nullptr && prev != nullptr)
     {
@@ -47,5 +47,3 @@ BSTNode<T> *convertToCircularDLL(BST<T> &tree)
     return head;
 }
 #endif // Q1_TPP
-
-//
