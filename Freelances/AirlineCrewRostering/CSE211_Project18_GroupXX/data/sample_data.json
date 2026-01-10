@@ -1,0 +1,24 @@
+{
+  "flights": [
+    { "id": "F100", "from": "JFK", "to": "LAX", "depart": "06:00", "arrive": "09:00", "aircraft": "A320" },
+    { "id": "F101", "from": "LAX", "to": "JFK", "depart": "11:00", "arrive": "19:30", "aircraft": "A320" },
+    { "id": "F200", "from": "JFK", "to": "MIA", "depart": "07:30", "arrive": "10:30", "aircraft": "B737" },
+    { "id": "F201", "from": "MIA", "to": "JFK", "depart": "12:00", "arrive": "15:00", "aircraft": "B737" },
+    { "id": "F300", "from": "ATL", "to": "ORD", "depart": "09:15", "arrive": "10:45", "aircraft": "A320" },
+    { "id": "F301", "from": "ORD", "to": "ATL", "depart": "12:00", "arrive": "14:00", "aircraft": "A320" },
+    { "id": "F400", "from": "LAX", "to": "SFO", "depart": "08:00", "arrive": "09:15", "aircraft": "A320" },
+    { "id": "F401", "from": "SFO", "to": "SEA", "depart": "10:00", "arrive": "11:30", "aircraft": "A320" },
+    { "id": "F500", "from": "SEA", "to": "JFK", "depart": "13:00", "arrive": "21:00", "aircraft": "A330" },
+    { "id": "F600", "from": "JFK", "to": "YYZ", "depart": "16:00", "arrive": "18:00", "aircraft": "A320" }
+  ],
+  "crew": [
+    { "id": "P1", "role": "pilot", "base": "JFK", "seniority": 10, "qualifications": ["A320","A330"] },
+    { "id": "P2", "role": "pilot", "base": "LAX", "seniority": 6, "qualifications": ["A320"] },
+    { "id": "P3", "role": "pilot", "base": "ATL", "seniority": 3, "qualifications": ["A320"] },
+    { "id": "FA1", "role": "attendant", "base": "JFK", "seniority": 8, "qualifications": ["A320","B737"] },
+    { "id": "FA2", "role": "attendant", "base": "MIA", "seniority": 2, "qualifications": ["B737"] },
+    { "id": "P4", "role": "pilot", "base": "SEA", "seniority": 9, "qualifications": ["A330"] },
+    { "id": "P5", "role": "pilot", "base": "JFK", "seniority": 1, "qualifications": [] },
+    { "id": "FA3", "role": "attendant", "base": "LAX", "seniority": 4, "qualifications": ["A320"] }
+  ]
+}
