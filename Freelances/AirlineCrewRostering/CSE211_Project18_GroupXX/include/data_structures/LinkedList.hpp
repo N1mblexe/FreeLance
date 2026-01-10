@@ -1,3 +1,8 @@
+/**
+ * @file LinkedList.hpp
+ * @brief Simple doubly-linked list node and container templates.
+ */
+
 #pragma once
 
 #include <stdexcept>
@@ -5,6 +10,10 @@
 namespace ds {
 
 template <typename T>
+/**
+ * @struct ListNode
+ * @brief Node used by `LinkedList<T>` storing the `data` value.
+ */
 struct ListNode {
     T data;
     ListNode* next;
@@ -14,6 +23,10 @@ struct ListNode {
 };
 
 template <typename T>
+/**
+ * @class LinkedList
+ * @brief Minimal doubly-linked list implementation used by project containers.
+ */
 class LinkedList {
    private:
     ListNode<T>* head;
@@ -37,4 +50,4 @@ class LinkedList {
 
     ListNode<T>* getHead() const;
 };
-}  // namespace ds
+}

@@ -1,3 +1,82 @@
-# Doxyfile placeholder for project documentation
-PROJECT_NAME = "CSE211_Project18_GroupXX"
-OUTPUT_DIRECTORY = docs
+# Doxyfile for Airline Crew Rostering
+# Generated minimal but comprehensive config for C++17 project
+
+PROJECT_NAME           = "Airline Crew Rostering"
+PROJECT_BRIEF          = "Tools and data structures for crew rostering"
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = YES
+OUTPUT_LANGUAGE        = English
+
+# Input
+INPUT                  = include src
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp *.hh *.cpp *.cxx *.cc
+
+# Build configuration
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+EXTRACT_LOCAL_CLASSES  = YES
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+
+# Source code parsing
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = NO
+EXPAND_ONLY_PREDEF     = NO
+
+# Warnings and verbosity
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_FORMAT            = "%s: %l: %m"
+
+# HTML output
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+GENERATE_TREEVIEW      = YES
+
+# Latex (disabled)
+GENERATE_LATEX         = NO
+
+# Diagrams
+HAVE_DOT               = YES
+DOT_NUM_THREADS        = 2
+DOT_IMAGE_FORMAT       = png
+CLASS_DIAGRAMS         = YES
+COLLABORATION_GRAPH    = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+
+# Source browser
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = YES
+VERBATIM_HEADERS       = YES
+
+# Misc
+GENERATE_WARNINGS      = YES
+QUIET                  = NO
+
+# Project version and footer
+PROJECT_NUMBER         = 0.1
+HTML_FOOTER            =
+
+# Tag files (empty by default)
+TAGFILES               =
+
+# Exclude patterns (build artifacts)
+EXCLUDE_PATTERNS       = */build/* */tests/*
+
+# Time format
+SORT_MEMBER_DOCS       = YES
+
+# Additional settings for C++
+MARKDOWN_SUPPORT       = YES
+ENABLE_DOXYGEN_TAGFILE = NO
+
+# End of Doxyfile

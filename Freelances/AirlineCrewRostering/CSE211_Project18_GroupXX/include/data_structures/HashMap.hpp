@@ -1,3 +1,8 @@
+/**
+ * @file HashMap.hpp
+ * @brief A small chained-hash map template using `LinkedList` buckets.
+ */
+
 #pragma once
 
 #include <functional>
@@ -16,6 +21,10 @@ struct Entry {
 };
 
 template <typename K, typename V>
+/**
+ * @class HashMap
+ * @brief Simple hash map mapping keys to values using separate chaining.
+ */
 class HashMap {
    private:
     LinkedList<Entry<K, V>>* buckets;
@@ -35,4 +44,4 @@ class HashMap {
 
     V* get(const K& key);
 };
-}  // namespace ds
+}

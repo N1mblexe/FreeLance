@@ -1,6 +1,7 @@
 #include "../../include/data_structures/HashMap.hpp"
 #include <functional>
 #include <string>
+#include <models/Pairing.hpp>
 
 namespace ds {
 
@@ -44,10 +45,8 @@ V* HashMap<K, V>::get(const K& key) {
     return nullptr;
 }
 
-// Explicit instantiation can be added here if specific K,V types are known
+}
 
-}  // namespace ds
-
-// explicit instantiation for test
 template class ds::HashMap<std::string, int>;
+template class ds::HashMap<std::string, models::Pairing>;
 

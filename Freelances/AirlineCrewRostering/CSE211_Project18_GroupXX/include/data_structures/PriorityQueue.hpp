@@ -1,3 +1,8 @@
+/**
+ * @file PriorityQueue.hpp
+ * @brief A pointer-based binary heap priority queue template.
+ */
+
 #pragma once
 
 #include <queue>
@@ -16,6 +21,10 @@ struct HeapNode {
 };
 
 template <typename T>
+/**
+ * @class PriorityQueue
+ * @brief Provides `push`/`pop` operations to manage highest-priority item.
+ */
 class PriorityQueue {
    private:
     HeapNode<T>* root;
@@ -36,5 +45,6 @@ class PriorityQueue {
     T pop();
 
     bool isEmpty() const;
+    size_t getSize() const;
 };
-}  // namespace ds
+}

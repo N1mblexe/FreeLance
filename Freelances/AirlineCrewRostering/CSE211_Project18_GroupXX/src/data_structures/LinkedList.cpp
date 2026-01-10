@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <string>
 #include <models/Flight.hpp>
+#include <models/Crew.hpp>
+#include <models/Pairing.hpp>
 
 namespace ds {
 
@@ -59,14 +61,16 @@ template <typename T>
 ListNode<T>* LinkedList<T>::getHead() const { return head; }
 
 
-// Explicit instantiations for types used by test/main
-}  // namespace ds
 
-// instantiate common types
+}
+
 template class ds::LinkedList<int>;
 template class ds::LinkedList<ds::Vertex>;
 template class ds::LinkedList<ds::Edge>;
 template class ds::LinkedList< ds::Entry<std::string,int> >;
 template class ds::LinkedList<std::string>;
 template class ds::LinkedList< models::Flight >;
+template class ds::LinkedList< models::Crew >;
+template class ds::LinkedList< models::Pairing >;
+template class ds::LinkedList< ds::Entry<std::string, models::Pairing> >;
 

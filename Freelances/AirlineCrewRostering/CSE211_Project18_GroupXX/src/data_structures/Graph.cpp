@@ -28,4 +28,4 @@ void Graph::addFlight(const std::string& from, const std::string& to,
 
 LinkedList<Vertex>* Graph::getVertices() { return &vertices; }
 
-}  // namespace ds
+}
